@@ -30,13 +30,18 @@ func NewLibrary() *Library {
 	}
 }
 
+// Add a new book
 func (lib *Library) AddBook(book models.Book) {
 	lib.books[book.ID] = book
 }
 
+//Remove an existing book
+
 func (lib *Library) RemoveBook(bookID int) {
 	delete(lib.books, bookID)
 }
+
+//Borrow a book
 
 func (lib *Library) BorrowBook(bookID int, memberID int) error {
 	book, exists := lib.books[bookID]
@@ -60,6 +65,7 @@ func (lib *Library) BorrowBook(bookID int, memberID int) error {
 	return nil
 }
 
+// Return a book
 func (lib *Library) ReturnBook(bookID int, memberID int) error {
 	member, exists := lib.members[memberID]
 	if !exists {
@@ -86,6 +92,7 @@ func (lib *Library) ReturnBook(bookID int, memberID int) error {
 	return nil
 }
 
+// List all available books
 func (lib *Library) ListAvailableBooks() []models.Book {
 	var availableBooks []models.Book
 	for _, book := range lib.books {
@@ -96,6 +103,7 @@ func (lib *Library) ListAvailableBooks() []models.Book {
 	return availableBooks
 }
 
+// List all borrowed books by a member
 func (lib *Library) ListBorrowedBooks(memberID int) []models.Book {
 	member, exists := lib.members[memberID]
 	if !exists {
