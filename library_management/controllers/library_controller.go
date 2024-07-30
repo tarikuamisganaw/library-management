@@ -10,7 +10,7 @@ import (
 	"library_management/services"
 )
 
-//Handles console input and invokes the appropriate service methods.
+//Handles console input and invokes the appropriate service methods
 
 type LibraryController struct {
 	library *services.Library

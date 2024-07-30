@@ -10,6 +10,8 @@ import (
 	"library_management/controllers"
 )
 
+// Entry point of the application
+
 func main() {
 	reader := bufio.NewReader(os.Stdin)
 	controller := controllers.NewLibraryController()
