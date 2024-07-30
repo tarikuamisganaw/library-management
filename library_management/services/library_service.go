@@ -7,6 +7,8 @@ import (
 	"library_management/models"
 )
 
+// Contains business logic and data manipulation functions.
+
 type Library struct {
 	books   map[int]models.Book
 	members map[int]models.Member
