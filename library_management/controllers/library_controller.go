@@ -22,6 +22,7 @@ func NewLibraryController() *LibraryController {
 	}
 }
 
+// Handles console input and invokes the AddBook method
 func (lc *LibraryController) AddBook(reader *bufio.Reader) {
 	fmt.Print("Enter book ID: ")
 	idStr, _ := reader.ReadString('\n')
@@ -51,6 +52,7 @@ func (lc *LibraryController) AddBook(reader *bufio.Reader) {
 	fmt.Println("Book added successfully.")
 }
 
+// Handles console input and invokes the RemoveBook method
 func (lc *LibraryController) RemoveBook(reader *bufio.Reader) {
 	fmt.Print("Enter book ID to remove: ")
 	idStr, _ := reader.ReadString('\n')
@@ -65,6 +67,7 @@ func (lc *LibraryController) RemoveBook(reader *bufio.Reader) {
 	fmt.Println("Book removed successfully.")
 }
 
+// Handles console input and invokes the BorrowBook method
 func (lc *LibraryController) BorrowBook(reader *bufio.Reader) {
 	fmt.Print("Enter book ID to borrow: ")
 	bookIDStr, _ := reader.ReadString('\n')
@@ -92,6 +95,8 @@ func (lc *LibraryController) BorrowBook(reader *bufio.Reader) {
 
 	fmt.Println("Book borrowed successfully.")
 }
+
+//Handles console input and invokes the ReturnBook method
 
 func (lc *LibraryController) ReturnBook(reader *bufio.Reader) {
 	fmt.Print("Enter book ID to return: ")
@@ -121,6 +126,8 @@ func (lc *LibraryController) ReturnBook(reader *bufio.Reader) {
 	fmt.Println("Book returned successfully.")
 }
 
+//Handles console input and invokes the  ListAvailableBooks method
+
 func (lc *LibraryController) ListAvailableBooks() {
 	books := lc.library.ListAvailableBooks()
 	if len(books) == 0 {
@@ -133,6 +140,8 @@ func (lc *LibraryController) ListAvailableBooks() {
 		fmt.Printf("ID: %d, Title: %s, Author: %s\n", book.ID, book.Title, book.Author)
 	}
 }
+
+//Handles console input and invokes the ListBorrowedBooks method
 
 func (lc *LibraryController) ListBorrowedBooks(reader *bufio.Reader) {
 	fmt.Print("Enter member ID: ")
